@@ -1,0 +1,17 @@
+.title-box {
+    text-align: center;
+    color:aliceblue;
+}
+
+body {
+    font-family: "Monaco", monospace;
+    background-color: rgb(123, 123, 123);
+}
+
+#dog_article {
+    width: 100%;
+}
+
+.text_article {
+    color: aliceblue;
+}
