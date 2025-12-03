@@ -4,8 +4,9 @@
 }
 
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background-color: rgb(84, 84, 84);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(50, 50, 50);
+    padding-bottom: 10rem;
     /* background-image: linear-gradient(to bottom right, rgb(123, 123, 123) , rgb(57, 57, 57)); */
 }
 
@@ -14,5 +15,38 @@ body {
 }
 
 .text_article {
+    color: #1e1e1e;
+}
+
+.item-object:hover {
+    box-shadow: 5px 5px 5px black;
+}
+
+.text-yellow {
+    color:rgb(246, 255, 164)
+}
+
+.text-white {
     color: aliceblue;
+}
+
+.bg-darkgradient {
+    /* background-color: rgb(73, 73, 73); */
+    background-image: linear-gradient(to bottom right, rgb(74, 74, 74), rgb(107, 107, 107));
+}
+
+.bg-gray {
+    background-color: rgb(207, 207, 207);
+}
+
+.bg-white {
+    background-color: rgb(234, 234, 234);
+}
+
+.font-large {
+    font-size: 3rem;
+}
+
+.bg-darkgray {
+    background-color: rgb(60, 60, 60);
 }
