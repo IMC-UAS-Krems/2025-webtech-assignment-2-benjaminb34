@@ -1,3 +1,7 @@
+html {
+    scrollbar-gutter: stable;
+}
+
 .title-box {
     text-align: center;
     color:aliceblue;
@@ -10,7 +14,7 @@ body {
     /* background-image: linear-gradient(to bottom right, rgb(123, 123, 123) , rgb(57, 57, 57)); */
 }
 
-#dog_article {
+#homeless_article {
     width: 100%;
 }
 
