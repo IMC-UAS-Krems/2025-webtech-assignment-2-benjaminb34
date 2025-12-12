@@ -56,17 +56,17 @@
 
         <div class="row row-cols-xl-5 row-cols-xxl-5 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('RegularHygieneKit')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
-                    <img class="w-100" src="img/item_hygiene_kit.jpg" alt="Hygiene Kit">
+                    <img class="w-100" src="img/item_hygiene_kit.jpg" alt="Regular Hygiene Kit">
                     <div class="p-1">
-                        <span class="fs-6 d-block text-white">Hygiene Kit</span>
+                        <span class="fs-6 d-block text-white">Regular Hygiene Kit</span>
                         <span class="text-yellow">€7.99</span>
                     </div>
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('SimpleRedBlanket')" class="col p-3">
                <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_blanket.jpg" alt="Simple Warm Red Blanket">
                     <div class="p-1">
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('SocksBundle')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_socks_bundle.png" alt="Socks Bundle">
                     <div class="p-1">
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('FirstAidKit')" class="col p-3">
                <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_first_aid_kit.jpeg" alt="First Aid Kit">
                     <div class="p-1">
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('ReusableWaterBottle')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_water_bottle.jpg" alt="Reusable Water Bottle">
                     <div class="p-1">
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('FeminineHygieneKit')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_feminine_hygiene_kit.jpg" alt="Feminine Hygiene Kit">
                     <div class="p-1">
@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('Backpack')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_backpack.jpg" alt="Backpack">
                     <div class="p-1">
@@ -126,7 +126,7 @@
                 </div>
             </div>
 
-            <div class="col p-3">
+            <div onclick="addToShoppingList('FoodPack')" class="col p-3">
                 <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_food_pack.jpg" alt="Ready-to-Eat Food Packs">
                     <div class="p-1">
@@ -136,6 +136,35 @@
                 </div>
             </div>
 
+            <div onclick="addToShoppingList('WinterGloves')" class="col p-3">
+                <div class="bg-darkgray text-white item-object">
+                    <img class="w-100" src="img/item_gloves.jpg" alt="Winter Gloves">
+                    <div class="p-1">
+                        <span class="fs-6 d-block text-white">Winter Gloves</span>
+                        <span class="text-yellow">€6.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="addToShoppingList('ProteinBarPack')" class="col p-3">
+                <div class="bg-darkgray text-white item-object">
+                    <img class="w-100" src="img/item_protein_bar_pack.jpeg" alt="Protein Bar Pack">
+                    <div class="p-1">
+                        <span class="fs-6 d-block text-white">Protein Bar Pack</span>
+                        <span class="text-yellow">€7.99</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="counter" class="mt-4 bg-gray d-inline-block p-2 fs-1 text-white">
+            Items in cart: <span class="text-yellow" style="white-space: pre;">00</span>
+        </div>
+        <div onclick="clearArray()" class="mt-4 bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
+            Clear
+        </div>
+        <div onclick="checkout()" class="mt-4 bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
+            Checkout
         </div>
     </main>
 </body>
