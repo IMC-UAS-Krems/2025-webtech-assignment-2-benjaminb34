@@ -22,11 +22,15 @@
         Foundation</header>
     <section class="container mt-5 shadow">
         <div class="row align-items-center bg-white rounded-3">
-            <article class="col-lg fs-4 p-3 text_article">Our organization’s main goal is to provide essential items to homeless
-                shelters with limited resources and insufficient equipment to properly care for their occupants. We act as a bridge
-                between citizens and homeless shelters: the equipment ordered through our platform is delivered directly by us to
+            <article class="col-lg fs-4 p-3 text_article">Our organization’s main goal is to provide essential items to
+                homeless
+                shelters with limited resources and insufficient equipment to properly care for their occupants. We act
+                as a bridge
+                between citizens and homeless shelters: the equipment ordered through our platform is delivered directly
+                by us to
                 the shelters in need. We believe every person deserves proper care, comfort, and support.</article>
-            <figure class="col-lg m-0 p-3"><img id="homeless_article" src="img/homeless_article.jpg" class="shadow"></figure>
+            <figure class="col-lg m-0 p-3"><img id="homeless_article" src="img/homeless_article.jpg" class="shadow">
+            </figure>
         </div>
     </section>
     <div class="container mt-3">
@@ -44,7 +48,8 @@
             </article>
             <article class="col bg-white shadow rounded-3 p-3 align-items-center">
                 <div>
-                    Below you can find our webshop. Every item you order is delivered directly to a shelter in need. You will receive an email with updates on the status and delivery of your donated items.
+                    Below you can find our webshop. Every item you order is delivered directly to a shelter in need. You
+                    will receive an email with updates on the status and delivery of your donated items.
                 </div>
             </article>
         </section>
@@ -67,7 +72,7 @@
             </div>
 
             <div onclick="addToShoppingList('SimpleRedBlanket')" class="col p-3">
-               <div class="bg-darkgray text-white item-object">
+                <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_blanket.jpg" alt="Simple Warm Red Blanket">
                     <div class="p-1">
                         <span class="fs-6 d-block text-white">Simple Warm Red Blanket</span>
@@ -87,7 +92,7 @@
             </div>
 
             <div onclick="addToShoppingList('FirstAidKit')" class="col p-3">
-               <div class="bg-darkgray text-white item-object">
+                <div class="bg-darkgray text-white item-object">
                     <img class="w-100" src="img/item_first_aid_kit.jpeg" alt="First Aid Kit">
                     <div class="p-1">
                         <span class="fs-6 d-block text-white">First Aid Kit</span>
@@ -157,16 +162,74 @@
             </div>
 
         </div>
-        <div id="counter" class="mt-4 bg-gray d-inline-block p-2 fs-1 text-white">
-            Items in cart: <span class="text-yellow" style="white-space: pre;">00</span>
+        <div class="d-sm-block d-md-block d-block d-lg-inline-block d-xl-inline-block d-xxl-inline-block">
+            <div id="counter" class="mt-4 bg-gray p-2 fs-1 d-inline-block prevent-select text-white">
+                Items in cart: <span class="text-yellow" style="white-space: pre;">00</span>
+            </div>
         </div>
-        <div onclick="clearArray()" class="mt-4 bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
+        <div onclick="clearArray()"
+            class="mt-2 prevent-select bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
             Clear
         </div>
-        <div onclick="checkout()" class="mt-4 bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
+        <div onclick="checkout()"
+            class="mt-2 prevent-select bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
             Checkout
         </div>
     </main>
+
+    <div id="checkoutbox" class="container bg-secondary mt-4 p-3 " style="display: none;">
+        <div class="bg-darkgray p-2">
+            <p class="fs-1 text-white prevent-select p-2 mb-0">Billing Information</p>
+            <form>
+                <div class="row p-2 pt-0">
+                    <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
+                        <label for="firstname" class="form-label">First Name *</label>
+                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="firstname" class="form-control" placeholder="Please enter letters only">
+                    </div>
+                    <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
+                        <label for="lastname" class="form-label">Last Name *</label>
+                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="lastname" class="form-control" placeholder="Please enter letters only">
+                    </div>
+                </div>
+                <div class="p-2">
+                    <label for="city" class="form-label">City *</label>
+                    <input maxlength="40" required id="city" type="text" class="form-control" placeholder="Please enter letters only">
+                </div>
+                <div class="p-2">
+                    <label for="billingaddress" class="form-label">Billing Address *</label>
+                    <input maxlength="60" required type="text" name="billingaddress" class="form-control" placeholder="Please enter letters only">
+                </div>
+                <div class="p-2 row">
+                    <div class="col">
+                        <label for="country" class="form-label">Country/Region *</label>
+                        <select required name="country" class="form-select col" aria-label="Country Selection">
+                            <option value="1">Austria</option>
+                            <option value="2">Germany</option>
+                            <option value="3">Slovakia</option>
+                            <option value="3">Hungary</option>
+                            <option value="3">Slovenia</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="zipcode" class="form-label">ZIP Code *</label>
+                        <input pattern="[1-9]+" required name="zipcode" type="text" maxlength="6" class="form-control" placeholder="Please enter numbers only">
+                    </div>
+                </div>
+                <div class="p-2">
+                    <label for="phonenumber" class="form-label">Phone Number (optional)</label>
+                    <input maxlength="15" pattern="[1-9]+" name="phonenumber" type="text" class="form-control" placeholder="Phone Number (optional)">
+                </div>
+                <div class="p-2">
+                    <label for="message" class="form-label">Message (optional)</label>
+                    <textarea maxlength="750" name="message" class="form-control" placeholder="Leave a comment here (optional)"></textarea>
+                </div>
+                <div class="p-2">
+                    <button tpye="submit" class="tbn">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 </html>

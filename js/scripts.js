@@ -1,7 +1,17 @@
 let shopping_list = []
 const price = {
-    WinterGloves:6.99,
+    6.99:"WinterGloves",
+    7.99:"RegularHygieneKit",
+    3.99:"SimpleRedBlanket",
+    2.99:"SocksBundle",
+    16.99:"FirstAidKit",
+    3.49:"ReusableWaterBottle",
+    6.49:"FeminineHygieneKit",
+    10.99:"Backpack",
+    9.99:"FoodPack",
+    7.99:"ProteinBarPack"
 }
+let total_price = []
 
 function addToShoppingList(item) {
     shopping_list.push(item)
@@ -10,10 +20,13 @@ function addToShoppingList(item) {
 }
 
 function checkout() {
-    for (let item in shopping_list) {
-        console.log(item)
-        console.log(Object.values(item))
+    if (shopping_list.length > 0) {
+    for (let i = 0; i < shopping_list.length; i++) {
+        console.log(shopping_list[i])
+        total_price += getKeyByValue(price, shopping_list[i])
     }
+    checkoutBox = document.getElementById("checkoutbox")
+    checkoutBox.setAttribute("style", "display:block") }
 }
 
 function updateCounter() {
@@ -31,4 +44,11 @@ function clearArray() {
     counter = box.getElementsByTagName("span")[0];
     counter.innerHTML = "00"
     shopping_list = []
+    checkoutBox = document.getElementById("checkoutbox")
+    checkoutBox.setAttribute("style", "display:none") 
+}
+
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key =>
+        object[key] === value);
 }

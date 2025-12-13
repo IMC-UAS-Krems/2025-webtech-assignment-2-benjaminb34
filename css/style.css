@@ -34,6 +34,10 @@ body {
     color: aliceblue;
 }
 
+.text-black {
+    color: rgb(25, 25, 25)
+}
+
 .bg-darkgradient {
     /* background-color: rgb(73, 73, 73); */
     background-image: linear-gradient(to bottom right, rgb(74, 74, 74), rgb(107, 107, 107));
@@ -53,4 +57,16 @@ body {
 
 .bg-darkgray {
     background-color: rgb(60, 60, 60);
+}
+
+.prevent-select {
+    /* This was taken from w3schools https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_disable_text_selection */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+label {
+    color: white;
+    font-size: 1em;
 }
