@@ -44,11 +44,19 @@ function checkout() {
             orderDetailsBox = document.getElementById("orderdetails")
             orderDetailsBox.setAttribute("style", "display:block")
             orderList = orderDetailsBox.getElementsByTagName("ul")[0]
-            for (let i = 0; i < inCartArray.length; i++) {
-                totalPrice += parseFloat(price[inCartArray[i]])
-                orderList.innerHTML += "<li class='fs-6' id=" + inCartArray[i] + ">" + getOccurrence(shopping_list, inCartArray[i]) + "x " + names[inCartArray[i]] + " : €" + price[inCartArray[i]] * getOccurrence(shopping_list, inCartArray[i]) + "</li>"
+            for (let i = 0; i < shopping_list.length; i++) {
+                totalPrice += parseFloat(price[shopping_list[i]])
             }
-            orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + Number((totalPrice).toFixed(5)) + "</span>"
+            for (let i = 0; i < inCartArray.length; i++) {
+                orderList.innerHTML += "<li class='fs-6' id=" + inCartArray[i] + ">" + getOccurrence(shopping_list, inCartArray[i]) + "x " + names[inCartArray[i]] + " :" + "<span class='text-darkyellow'> €" + price[inCartArray[i]] * getOccurrence(shopping_list, inCartArray[i]) + "</span></li>"
+            }
+            if (shopping_list.length > 2) {
+                orderList.innerHTML += "<span class='d-block mt-2 fs-6 text-white'> Due to buying more than three times, a discount of 30% was applied </span>"
+                orderList.innerHTML += "<span class='d-block fs-6 text-white'>Discount: <span class='text-darkyellow'>€" + totalPrice*0.3 + "</span></span>"
+                orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + "<span class='text-decoration-line-through'>" + Number((totalPrice).toFixed(5)) + "</span> " + Number((totalPrice-(totalPrice*0.3)).toFixed(5)) + "</span>"
+            } else {
+                orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + Number((totalPrice).toFixed(5)) + "</span>"
+            }
         }
     }
 }
@@ -75,6 +83,7 @@ function clearArray() {
     orderList = orderDetailsBox.getElementsByTagName("ul")[0]
     orderList.innerHTML = ""
     checkoutBool = 0
+    totalPrice = 0
 }
 
 function continueToDetails() {

@@ -180,7 +180,7 @@
     <div id="checkoutbox" class="container bg-secondary mt-4 p-3 " style="display: none;">
         <div class="bg-darkgray p-2">
             <p class="fs-1 text-white prevent-select p-2 mb-0">Billing Information</p>
-            <form>
+            <form onsubmit="return confirm('Do you really want to submit the form?');">
                 <div class="row p-2 pt-0">
                     <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
                         <label for="firstname" class="form-label">First Name *</label>
@@ -195,7 +195,7 @@
                 </div>
                 <div class="p-2">
                     <label for="city" class="form-label">City *</label>
-                    <input maxlength="40" required id="city" type="text" class="form-control"
+                    <input maxlength="40" pattern="[A-Za-z]+" required id="city" type="text" class="form-control"
                         placeholder="Please enter letters only">
                 </div>
                 <div class="p-2">
@@ -231,7 +231,7 @@
                         placeholder="Leave a comment here (optional)"></textarea>
                 </div>
                 <div class="p-2">
-                    <button type="submit" onclick="thankYou()" class="tbn">Continue</button>
+                    <button type="submit" class="tbn">Continue</button>
                 </div>
             </form>
         </div>
