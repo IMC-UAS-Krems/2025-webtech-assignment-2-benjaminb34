@@ -184,25 +184,29 @@
                 <div class="row p-2 pt-0">
                     <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
                         <label for="firstname" class="form-label">First Name *</label>
-                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="firstname" class="form-control" placeholder="Please enter letters only">
+                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="firstname"
+                            class="form-control" placeholder="Please enter letters only">
                     </div>
                     <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
                         <label for="lastname" class="form-label">Last Name *</label>
-                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="lastname" class="form-control" placeholder="Please enter letters only">
+                        <input maxlength="40" pattern="[A-Za-z]+" required type="text" id="lastname"
+                            class="form-control" placeholder="Please enter letters only">
                     </div>
                 </div>
                 <div class="p-2">
                     <label for="city" class="form-label">City *</label>
-                    <input maxlength="40" required id="city" type="text" class="form-control" placeholder="Please enter letters only">
+                    <input maxlength="40" required id="city" type="text" class="form-control"
+                        placeholder="Please enter letters only">
                 </div>
                 <div class="p-2">
                     <label for="billingaddress" class="form-label">Billing Address *</label>
-                    <input maxlength="60" required type="text" name="billingaddress" class="form-control" placeholder="Please enter letters only">
+                    <input maxlength="60" required type="text" id="billingaddress" class="form-control"
+                        placeholder="Please enter letters only">
                 </div>
                 <div class="p-2 row">
                     <div class="col">
                         <label for="country" class="form-label">Country/Region *</label>
-                        <select required name="country" class="form-select col" aria-label="Country Selection">
+                        <select required id="country" class="form-select col" aria-label="Country Selection">
                             <option value="1">Austria</option>
                             <option value="2">Germany</option>
                             <option value="3">Slovakia</option>
@@ -212,21 +216,34 @@
                     </div>
                     <div class="col">
                         <label for="zipcode" class="form-label">ZIP Code *</label>
-                        <input pattern="[1-9]+" required name="zipcode" type="text" maxlength="6" class="form-control" placeholder="Please enter numbers only">
+                        <input pattern="[1-9]+" required id="zipcode" type="text" maxlength="6" class="form-control"
+                            placeholder="Please enter numbers only">
                     </div>
                 </div>
                 <div class="p-2">
                     <label for="phonenumber" class="form-label">Phone Number (optional)</label>
-                    <input maxlength="15" pattern="[1-9]+" name="phonenumber" type="text" class="form-control" placeholder="Phone Number (optional)">
+                    <input maxlength="15" pattern="[1-9]+" id="phonenumber" type="text" class="form-control"
+                        placeholder="Phone Number (optional)">
                 </div>
                 <div class="p-2">
                     <label for="message" class="form-label">Message (optional)</label>
-                    <textarea maxlength="750" name="message" class="form-control" placeholder="Leave a comment here (optional)"></textarea>
+                    <textarea maxlength="750" id="message" class="form-control"
+                        placeholder="Leave a comment here (optional)"></textarea>
                 </div>
                 <div class="p-2">
-                    <button tpye="submit" class="tbn">Continue</button>
+                    <button type="submit" onclick="thankYou()" class="tbn">Continue</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div id="orderdetails" style="display: none;" class="container bg-secondary mt-4 p-3 text-white">
+        <div class="bg-darkgray p-3">
+        <p class="fs-1">Order details</p>
+        <ul type="none">
+
+        </ul>
+        <span onclick="continueToDetails()" class="bg-gray text-white p-2 item-object">Continue</span>
         </div>
     </div>
 

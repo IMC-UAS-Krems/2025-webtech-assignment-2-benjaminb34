@@ -1,17 +1,32 @@
 let shopping_list = []
+let totalPrice = 0
+let checkoutBool = 0
+
 const price = {
-    6.99:"WinterGloves",
-    7.99:"RegularHygieneKit",
-    3.99:"SimpleRedBlanket",
-    2.99:"SocksBundle",
-    16.99:"FirstAidKit",
-    3.49:"ReusableWaterBottle",
-    6.49:"FeminineHygieneKit",
-    10.99:"Backpack",
-    9.99:"FoodPack",
-    7.99:"ProteinBarPack"
+    WinterGloves: 6.99,
+    RegularHygieneKit: 7.99,
+    SimpleRedBlanket: 3.99,
+    SocksBundle: 2.99,
+    FirstAidKit: 16.99,
+    ReusableWaterBottle: 3.49,
+    FeminineHygieneKit: 6.49,
+    Backpack: 10.99,
+    FoodPack: 9.99,
+    ProteinBarPack: 7.99
 }
-let total_price = []
+
+const names = {
+    WinterGloves: "Winter Gloves",
+    RegularHygieneKit: "Regular Hygiene Kit",
+    SimpleRedBlanket: "Simple Red Warm Blanket",
+    SocksBundle: "Socks Bundle",
+    FirstAidKit: "First Aid Kit",
+    ReusableWaterBottle: "Reusable Water Bottle",
+    FeminineHygieneKit: "Feminine Hygiene Kit",
+    Backpack: "Backpack",
+    FoodPack: "Food Pack",
+    ProteinBarPack: "Protein Bar Pack"
+}
 
 function addToShoppingList(item) {
     shopping_list.push(item)
@@ -21,12 +36,21 @@ function addToShoppingList(item) {
 
 function checkout() {
     if (shopping_list.length > 0) {
-    for (let i = 0; i < shopping_list.length; i++) {
-        console.log(shopping_list[i])
-        total_price += getKeyByValue(price, shopping_list[i])
+        if (checkoutBool === 0) {
+            checkoutBool = 1
+            let inCartSet = new Set(shopping_list)
+            let inCartArray = [...inCartSet]
+            console.log(inCartArray)
+            orderDetailsBox = document.getElementById("orderdetails")
+            orderDetailsBox.setAttribute("style", "display:block")
+            orderList = orderDetailsBox.getElementsByTagName("ul")[0]
+            for (let i = 0; i < inCartArray.length; i++) {
+                totalPrice += parseFloat(price[inCartArray[i]])
+                orderList.innerHTML += "<li class='fs-6' id=" + inCartArray[i] + ">" + getOccurrence(shopping_list, inCartArray[i]) + "x " + names[inCartArray[i]] + " : €" + price[inCartArray[i]] * getOccurrence(shopping_list, inCartArray[i]) + "</li>"
+            }
+            orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + Number((totalPrice).toFixed(5)) + "</span>"
+        }
     }
-    checkoutBox = document.getElementById("checkoutbox")
-    checkoutBox.setAttribute("style", "display:block") }
 }
 
 function updateCounter() {
@@ -45,10 +69,25 @@ function clearArray() {
     counter.innerHTML = "00"
     shopping_list = []
     checkoutBox = document.getElementById("checkoutbox")
-    checkoutBox.setAttribute("style", "display:none") 
+    checkoutBox.setAttribute("style", "display:none")
+    orderDetailsBox = document.getElementById("orderdetails")
+    orderDetailsBox.setAttribute("style", "display: none")
+    orderList = orderDetailsBox.getElementsByTagName("ul")[0]
+    orderList.innerHTML = ""
+    checkoutBool = 0
 }
 
-function getKeyByValue(object, value) {
-    return Object.keys(object).find(key =>
-        object[key] === value);
+function continueToDetails() {
+    checkoutBox = document.getElementById("checkoutbox")
+    checkoutBox.setAttribute("style", "display:block")
+    orderDetailsBox = document.getElementById("orderdetails")
+    orderDetailsBox.setAttribute("style", "display: none")
+}
+
+function getOccurrence(array, value) {
+    return array.filter((v) => (v === value)).length;
+} //https://stackoverflow.com/questions/37365512/count-the-number-of-times-a-same-value-appears-in-a-javascript-array
+
+function thankYou() {
+    window.alert("Your order has been placed. Thank you for donating!")
 }
