@@ -51,9 +51,9 @@ function checkout() {
                 orderList.innerHTML += "<li class='fs-6' id=" + inCartArray[i] + ">" + getOccurrence(shopping_list, inCartArray[i]) + "x " + names[inCartArray[i]] + " :" + "<span class='text-darkyellow'> €" + price[inCartArray[i]] * getOccurrence(shopping_list, inCartArray[i]) + "</span></li>"
             }
             if (shopping_list.length > 2) {
-                orderList.innerHTML += "<span class='d-block mt-2 fs-6 text-white'> Due to buying more than three times, a discount of 30% was applied </span>"
+                orderList.innerHTML += "<span class='d-block mt-2 fs-6 text-white'> Due to buying more than two items, a discount of 30% was applied </span>"
                 orderList.innerHTML += "<span class='d-block fs-6 text-white'>Discount: <span class='text-darkyellow'>€" + totalPrice*0.3 + "</span></span>"
-                orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + "<span class='text-decoration-line-through'>" + Number((totalPrice).toFixed(5)) + "</span> " + Number((totalPrice-(totalPrice*0.3)).toFixed(5)) + "</span>"
+                orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + "<span class='text-decoration-line-through'>" + Number((totalPrice).toFixed(5)) + "</span> €" + Number((totalPrice-(totalPrice*0.3)).toFixed(5)) + "</span>"
             } else {
                 orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + Number((totalPrice).toFixed(5)) + "</span>"
             }
