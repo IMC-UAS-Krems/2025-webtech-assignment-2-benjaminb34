@@ -1,6 +1,7 @@
 let shopping_list = []
 let totalPrice = 0
 let checkoutBool = 0
+const form = document.getElementById("formid")
 
 const price = {
     WinterGloves: 6.99,
@@ -52,10 +53,13 @@ function checkout() {
             }
             if (shopping_list.length > 2) {
                 orderList.innerHTML += "<span class='d-block mt-2 fs-6 text-white'> Due to buying more than two items, a discount of 30% was applied </span>"
-                orderList.innerHTML += "<span class='d-block fs-6 text-white'>Discount: <span class='text-darkyellow'>€" + totalPrice*0.3 + "</span></span>"
+                orderList.innerHTML += "<span class='d-block fs-6 text-white'>Discount: <span class='text-darkyellow'>€" + Number((totalPrice*0.3).toFixed(5)) + "</span></span>"
                 orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + "<span class='text-decoration-line-through'>" + Number((totalPrice).toFixed(5)) + "</span> €" + Number((totalPrice-(totalPrice*0.3)).toFixed(5)) + "</span>"
+                orderList.innerHTML += "<span class='d-block fs-6 text-white'>Tax from your payment (10%): <span class='text-darkyellow'>€" + Number(((totalPrice-(totalPrice*0.3))*0.1).toFixed(5)) + "</span></span>"
+
             } else {
                 orderList.innerHTML += "<span class='fs-3 text-yellow'>Total Price: €" + Number((totalPrice).toFixed(5)) + "</span>"
+                orderList.innerHTML += "<span class='d-block fs-6 text-white'>Tax from your payment (10%): <span class='text-darkyellow'>€" + Number(((totalPrice)*0.1).toFixed(5)) + "</span></span>"
             }
         }
     }
@@ -87,11 +91,12 @@ function clearArray() {
 }
 
 function continueToDetails() {
+    if (shopping_list.length > 0) {
     checkoutBox = document.getElementById("checkoutbox")
     checkoutBox.setAttribute("style", "display:block")
     orderDetailsBox = document.getElementById("orderdetails")
     orderDetailsBox.setAttribute("style", "display: none")
-}
+}}
 
 function getOccurrence(array, value) {
     return array.filter((v) => (v === value)).length;
@@ -99,4 +104,18 @@ function getOccurrence(array, value) {
 
 function thankYou() {
     window.alert("Your order has been placed. Thank you for donating!")
+    location.reload()
 }
+
+function submitForm(event) {
+    event.preventDefault();
+    // https://www.tutorialspoint.com/how-to-stop-refreshing-the-page-on-submit-in-javascript
+}
+
+function placeOrder() {
+    if (confirm("Are you sure that you want to place your order?")) {
+        thankYou()
+    }
+}
+
+form.addEventListener('submit', submitForm)

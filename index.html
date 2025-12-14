@@ -171,7 +171,7 @@
             class="mt-2 prevent-select bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
             Clear
         </div>
-        <div onclick="checkout()"
+        <div onclick="continueToDetails()"
             class="mt-2 prevent-select bg-darkgray d-inline-block p-2 fs-1 text-white item-object">
             Checkout
         </div>
@@ -180,7 +180,7 @@
     <div id="checkoutbox" class="container bg-secondary mt-4 p-3 " style="display: none;">
         <div class="bg-darkgray p-2">
             <p class="fs-1 text-white prevent-select p-2 mb-0">Billing Information</p>
-            <form onsubmit="return confirm('Do you really want to submit the order?')">
+            <form id="formid" onsubmit="checkout()">
                 <div class="row p-2 pt-0">
                     <div class="col-lg col-md col-xl col-xxl mt-sm-3 mt-3">
                         <label for="firstname" class="form-label">First Name *</label>
@@ -231,7 +231,7 @@
                         placeholder="Leave a comment here (optional)"></textarea>
                 </div>
                 <div class="p-2">
-                    <button type="submit" class="tbn">Continue</button>
+                    <button type="submit" class="btn btn-secondary">Checkout</button>
                 </div>
             </form>
         </div>
@@ -243,7 +243,7 @@
         <ul type="none">
 
         </ul>
-        <span onclick="continueToDetails()" class="bg-gray text-white p-2 item-object">Continue</span>
+        <span onclick="placeOrder()" class="bg-gray text-white p-2 item-object">Place order!</span>
         </div>
     </div>
 
